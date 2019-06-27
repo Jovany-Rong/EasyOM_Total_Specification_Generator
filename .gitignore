@@ -1,0 +1,14 @@
+__pycache__/
+libs/__pycache__/
+.vscode/
+log/
+*.spec
+*.pyc
+build/
+dist/
+*.pkg
+tool/hrs/sym/
+rep/
+esp/
+Input/*.esp
+Output/*.html
