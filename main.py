@@ -300,58 +300,61 @@ class Prog(object):
         report.appendH2("数据库运行情况")
 
         print("\t\tWriting information of database(s) ...\n")
-        
+
         for dd in self.ddList:
-            if dd["DatabaseConnectionStatus"] == "Success":
-                report.appendH3(dd["DatabaseConnection"])
+            try:
+                if dd["DatabaseConnectionStatus"] == "Success":
+                    report.appendH3(dd["DatabaseConnection"])
 
-                report.appendH4("基本信息")
-                report.appendParagraph(dd["DatabaseVersion"])
+                    report.appendH4("基本信息")
+                    report.appendParagraph(dd["DatabaseVersion"])
 
-                report.appendH4("实例信息")
-                report.appendHTML(dd["hTable_DatabaseInstance"])
-                report.appendParagraph("数据库共包含%s个实例。"%dd["DatabaseInstanceCount"])
+                    report.appendH4("实例信息")
+                    report.appendHTML(dd["hTable_DatabaseInstance"])
+                    report.appendParagraph("数据库共包含%s个实例。"%dd["DatabaseInstanceCount"])
 
-                report.appendH4("日志信息")
-                report.appendHTML(dd["hTable_DatabaseLog"])
-                report.appendParagraph("数据库共包含%s个日志。"%dd["DatabaseLogCount"])
+                    report.appendH4("日志信息")
+                    report.appendHTML(dd["hTable_DatabaseLog"])
+                    report.appendParagraph("数据库共包含%s个日志。"%dd["DatabaseLogCount"])
 
-                report.appendH4("表空间信息")
-                report.appendHTML(dd["hTable_DatabaseTablespace"])
-                report.appendParagraph("数据库共包含%s个表空间。"%dd["DatabaseTablespaceCount"])
+                    report.appendH4("表空间信息")
+                    report.appendHTML(dd["hTable_DatabaseTablespace"])
+                    report.appendParagraph("数据库共包含%s个表空间。"%dd["DatabaseTablespaceCount"])
 
-                report.appendH4("表空间使用信息")
-                report.appendHTML(dd["hTable_DatabaseTablespaceUtilization"])
+                    report.appendH4("表空间使用信息")
+                    report.appendHTML(dd["hTable_DatabaseTablespaceUtilization"])
 
-                report.appendH4("数据文件自扩展信息")
-                report.appendHTML(dd["hTable_DatabaseFileAutoExtension"])
+                    report.appendH4("数据文件自扩展信息")
+                    report.appendHTML(dd["hTable_DatabaseFileAutoExtension"])
 
-                report.appendH4("无效对象信息")
-                report.appendHTML(dd["hTable_DatabaseInvalidObject"])
-                report.appendParagraph("数据库共包含%s个无效对象。"%dd["DatabaseInvalidObjectCount"])
+                    report.appendH4("无效对象信息")
+                    report.appendHTML(dd["hTable_DatabaseInvalidObject"])
+                    report.appendParagraph("数据库共包含%s个无效对象。"%dd["DatabaseInvalidObjectCount"])
 
-                report.appendH4("资源限制信息")
-                report.appendHTML(dd["hTable_DatabaseResourceLimit"])
-                report.appendParagraph("数据库共包含%s个资源限制。"%dd["DatabaseResourceLimitCount"])
+                    report.appendH4("资源限制信息")
+                    report.appendHTML(dd["hTable_DatabaseResourceLimit"])
+                    report.appendParagraph("数据库共包含%s个资源限制。"%dd["DatabaseResourceLimitCount"])
 
-                report.appendH4("会话信息")
-                report.appendHTML(dd["hTable_DatabaseSession"])
-                report.appendParagraph("数据库共包含%s个会话。"%dd["DatabaseSessionCount"])
+                    report.appendH4("会话信息")
+                    report.appendHTML(dd["hTable_DatabaseSession"])
+                    report.appendParagraph("数据库共包含%s个会话。"%dd["DatabaseSessionCount"])
                 
-                report.appendH4("异常扩展信息")
-                if dd["DatabaseAbnormalExtensionCount"] != "0":
-                    report.appendHTML(dd["hTable_DatabaseAbnormalExtension"])
-                report.appendParagraph("数据库共包含%s个异常扩展。"%dd["DatabaseAbnormalExtensionCount"])
+                    report.appendH4("异常扩展信息")
+                    if dd["DatabaseAbnormalExtensionCount"] != "0":
+                        report.appendHTML(dd["hTable_DatabaseAbnormalExtension"])
+                    report.appendParagraph("数据库共包含%s个异常扩展。"%dd["DatabaseAbnormalExtensionCount"])
 
-                report.appendH4("SYSTEM表空间对象所有者异常信息")
-                if dd["DatabaseAbnormalObjectOwnerCount"] != "0":
-                    report.appendHTML(dd["hTable_DatabaseAbnormalObjectOwner"])
-                report.appendParagraph("数据库共包含%s个SYSTEM表空间对象所有者异常。"%dd["DatabaseAbnormalObjectOwnerCount"])
+                    report.appendH4("SYSTEM表空间对象所有者异常信息")
+                    if dd["DatabaseAbnormalObjectOwnerCount"] != "0":
+                        report.appendHTML(dd["hTable_DatabaseAbnormalObjectOwner"])
+                    report.appendParagraph("数据库共包含%s个SYSTEM表空间对象所有者异常。"%dd["DatabaseAbnormalObjectOwnerCount"])
 
-                report.appendH4("长时间执行SQL信息")
-                if dd["DatabaseLongExecutedSQLCount"] != "0":
-                    report.appendHTML(dd["hTable_DatabaseLongExecutedSQL"])
-                report.appendParagraph("数据库共包含%s个长时间执行SQL。"%dd["DatabaseLongExecutedSQLCount"])
+                    report.appendH4("长时间执行SQL信息")
+                    if dd["DatabaseLongExecutedSQLCount"] != "0":
+                        report.appendHTML(dd["hTable_DatabaseLongExecutedSQL"])
+                    report.appendParagraph("数据库共包含%s个长时间执行SQL。"%dd["DatabaseLongExecutedSQLCount"])
+            except:
+                pass
 
         print("\t\tDone.\n")
 
