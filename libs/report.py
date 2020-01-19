@@ -80,10 +80,10 @@ class Report(object):
     body = """
         """
 
-    def makeRpt(self):
+    def makeRpt(self, proj):
         rptTime = time.localtime(time.time())
         now = time.strftime('%Y-%m-%d_%H-%M-%S',rptTime)
-        rptFile = r"Output/EasyOM_Total_Specification_" + now + r".html"
+        rptFile = r"Output/EasyOM_Total_Specification_" + proj + "_" + now + r".html"
         #encFile = r"rep/EasyOM_Report_" + now + r".eom"
 
         report = self.__starter + self.body + self.__finisher
